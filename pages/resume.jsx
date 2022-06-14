@@ -49,17 +49,17 @@ const resume = () => {
 
 
 
-          I love new challenges and I don't give up easily. 
+          I love new challenges and I don&apos;t give up easily. 
           Innovative and motivated by web development
           with experience in differents project, 
-          I have been able to adapt to the situations I faced.
+          I&apos;ve been able to adapt to the situations I faced.
         </p>
 
         <div className=' py-4'>
           <h5 className='text-center underline text-[18px] py-2'>Education</h5>
           <ul className='list-disc list-inside'>
             <li>Systems Engineer</li>
-            <li>Master's degree in Information Technologies and Computer Security</li>
+            <li>Master&apos;s degree in Information Technologies and Computer Security</li>
             <li>Postgraduate of Ethical Hacking and Cybersecurity</li>
             <li>Certificate of Expert in Data Transmission</li>
             <li>Mikrotik Certified MTCNA: 2018-2021, MIKROTIK</li>

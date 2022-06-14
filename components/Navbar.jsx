@@ -38,7 +38,7 @@ const Navbar = () => {
         setShadow(true);
         setLinkColor('#000');
         setNavBg('#ecf0f3');
-      } else if(routes.includes(router.asPath)) {
+      } else  {
         setShadow(false);
         setNavBg('transparent');
         setLinkColor('#fff');
