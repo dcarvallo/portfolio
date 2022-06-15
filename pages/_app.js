@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps, router }) {
       const hashId = window.location.hash;
       if (hashId) {
         setTimeout(() => {
-          // window.location.href = 'http://localhost:3000/'+hashId 
-          router.push(hashId)
+          window.location.href = window.location.origin+"/"+hashId 
+      
         },300)
         
       }
