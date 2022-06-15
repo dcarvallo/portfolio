@@ -1,8 +1,6 @@
 import '../styles/globals.css'
 import Navbar from '../components/Navbar';
 import {AnimatePresence} from 'framer-motion';
-import PAGE_TRANSITION from '../pageTransitions';
-
 
 function MyApp({ Component, pageProps, router }) {
 
@@ -11,7 +9,8 @@ function MyApp({ Component, pageProps, router }) {
       const hashId = window.location.hash;
       if (hashId) {
         setTimeout(() => {
-          window.location.href = 'http://localhost:3000/'+hashId 
+          // window.location.href = 'http://localhost:3000/'+hashId 
+          router.push(hashId)
         },300)
         
       }
