@@ -80,7 +80,7 @@ const rentCar = () => {
               <li>Filter</li>
               <li>Search functionality</li>
               <li>Select car</li>
-              <li>Create car for rent </Li>
+              <li>Create car for rent </li>
             </ul>
           </div>
           <div className='mt-6'>
