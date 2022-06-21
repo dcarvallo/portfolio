@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import glonemeet2 from '../public/assets/projects/rentcar/car.png'
+import glonemeet2 from '../public/assets/projects/cars/cars.png'
 import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 import PAGE_TRANSITION from '../pageTransitions';
