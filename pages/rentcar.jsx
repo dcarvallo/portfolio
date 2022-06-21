@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import glonemeet2 from '../public/assets/projects/glonemeet/glonemeet2.png'
+import glonemeet2 from '../public/assets/projects/rentcar/car.png'
 import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 import PAGE_TRANSITION from '../pageTransitions';
@@ -34,7 +34,7 @@ const animateVariants = {
 }
 
 
-const meet = () => {
+const rentCar = () => {
   return (
     <div className='w-full'>
       <div className='w-screen h-[30vh] lg:h-[40vh] relative'>
@@ -53,14 +53,14 @@ const meet = () => {
             exit={{x:40, opacity:0}}
             transition={{delay: 0.3}}
           >
-            Google Meet clone
+            Renta Cars
           </motion.h2>
           <motion.h3
           animate={{x:0,opacity:1}}
           initial={{x:80, opacity:0}}
           exit={{x:40, opacity:0}}
           transition={{delay: 0.2}}
-          >React JS | Material UI | Twilio</motion.h3>
+          >React JS | Tailwind | NodeJs | MongoDB</motion.h3>
         </motion.div>
       </div>
 
@@ -75,29 +75,18 @@ const meet = () => {
           This app was created like a Google Meet Clone, it has the following characteristics:
           </p>
           <div>
-
+            <p>In construction</p>
             <ul className="list-disc ">
-              <li>Google account authentication</li>
-              <li>User types: [&apos;Room Creator&apos;, &apos;Participant&apos;]</li>
-              <li>List of participants with search</li>
-              <li>Chat room</li>
-              <li>Video on/off | Audio on/off | Share screen</li>
-              <li>View modes</li>
-              <li>Reactions with emojis</li>
-              <li>Room Creator:
-                <ul className="list-disc list-inside">
-                  <li>Permit, reject or admit all participants</li>
-                  <li>Remove participants</li>
-                  <li>Mute participants</li>
-                  <li>End meeting for everybody</li>
-                </ul>
-              </li>
+              <li>Filter</li>
+              <li>Search functionality</li>
+              <li>Select car</li>
+              <li>Create car for rent </Li>
             </ul>
           </div>
           <div className='mt-6'>
 
-            <a href='https://react-twilio-serverless-8560-dev.twil.io/index.html' rel="noreferrer" target='_blank' className='bg-blue-500 text-white rounded px-8 py-2 mt-4 mr-8'>Demo</a>
-            <a  href='https://github.com/dcarvallo/glone-meet' rel="noreferrer" target='_blank' className=' bg-blue-500 text-white rounded px-8 py-2 mt-4'>Code</a>
+            <a href='https://alquiler-front.vercel.app/' rel="noreferrer" target='_blank' className='bg-blue-500 text-white rounded px-8 py-2 mt-4 mr-8'>Demo</a>
+            <a  href='https://github.com/dcarvallo/alquiler' rel="noreferrer" target='_blank' className=' bg-blue-500 text-white rounded px-8 py-2 mt-4'>Code</a>
           </div>
           </motion.div>
         </div>
@@ -109,16 +98,16 @@ const meet = () => {
                 <RiRadioButtonFill className='pr-1' /> React
               </p>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Material UI
+                <RiRadioButtonFill className='pr-1' /> Tailwind
               </p>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Javascript
+                <RiRadioButtonFill className='pr-1' /> NodeJs
               </p>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Twilio
+                <RiRadioButtonFill className='pr-1' /> Express
               </p>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Auth0
+                <RiRadioButtonFill className='pr-1' /> MongoDB
               </p>
             </div>
           </div>
@@ -131,4 +120,4 @@ const meet = () => {
   );
 };
 
-export default meet;
+export default rentCar;
