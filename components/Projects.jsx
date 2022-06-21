@@ -38,7 +38,7 @@ const Projects = () => {
           <ProjectItem
             title='Rent Cars'
             backgroundImg={cars}
-            projectUrl='#'
+            projectUrl='/rentcar'
           >
 
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> React</span>
@@ -52,7 +52,7 @@ const Projects = () => {
           <ProjectItem
             title='ERP system'
             backgroundImg={sistemaerp}
-            projectUrl='#'
+            projectUrl='/erpsystem'
           >
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> Laravel</span>
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> Bootstrap</span>

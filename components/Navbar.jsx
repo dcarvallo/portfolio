@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { useRouter } from 'next/router';
 
-const routes = ['/inertiasystem', '/crypto', '/netflix', '/meet']
+const routes = ['/inertiasystem', '/erpsystem', '/rentcar', '/meet']
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -20,6 +20,7 @@ const Navbar = () => {
       if (routes.includes(router.asPath) ) {
         setNavBg('transparent');
         setLinkColor('#fff');
+        console.log('tttttt')
       } else {
         setNavBg('#ecf0f3');
         setLinkColor('#000');
@@ -39,8 +40,6 @@ const Navbar = () => {
         setNavBg('#ecf0f3');
       } else  {
         setShadow(false);
-        setNavBg('transparent');
-        setLinkColor('#fff');
       }
     };
     window.addEventListener('scroll', handleShadow);
@@ -141,6 +140,11 @@ const Navbar = () => {
               <Link href='/#projects'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm'>
                   Projects
+                </li>
+              </Link>
+              <Link href='/resume'>
+                <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                  Resume
                 </li>
               </Link>
               <Link href='#contact'>
