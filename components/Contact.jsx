@@ -1,22 +1,51 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 
+const initstate = {
+  show: false,
+  message: '',
+  color: ''
+}
+
 const Contact = () => {
-  const [name, setName] = useState('');;
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-
-  const handleSubmit = () => {
-    setName('');
-    setEmail('');
-    setSubject('');
-    setMessage('');
+  const [eventMess, setEventMess] = useState(initstate)
+  const [loading, setLoading] = useState(false)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData();
+    formData.append('email', email)
+    formData.append('subject', subject)
+    formData.append('message', message)
+    setLoading(true)
+    fetch('https://getform.io/f/443c431d-ff1d-401e-a7b7-10d09d24ce40',{
+      method:'POST',
+      body:formData
+    }).then(res => {
+      setLoading(false)
+      setEventMess({show:true,color:'bg-green-400', message:'Message sent'})
+      setEmail('');
+      setSubject('');
+      setMessage('');
+      setTimeout(() => {
+        setEventMess(initstate)
+      }, 5000);
+    })
+    .catch(err=> {
+      setEventMess({show:true,color:'bg-red-400', message:'Error'})
+      setLoading(false)
+      setTimeout(() => {
+        setEventMess(initstate)
+      }, 5000);
+    })
+   
   };
 
   return (
@@ -27,7 +56,7 @@ const Contact = () => {
         </p>
         <h2 className='py-4'>Get In Touch</h2>
         <div className='grid lg:grid-cols-5 gap-8'>
-          {/* left */}
+
           <div className='col-span-3 lg:col-span-2 w-full h-full shadow-md shadow-gray-400 rounded-xl p-4'>
             <div className='lg:p-4 h-full '>
              
@@ -61,31 +90,15 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* right */}
           <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
             <div className='p-4'>
               <form
                 onSubmit={handleSubmit}
-                // action='https://getform.io/f/08ebcd37-f5b5-45be-8c13-714f011ce060'
-                method='POST'
               >
-                <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
-                  <div className='flex flex-col'>
-                    <label className='uppercase text-sm py-2'>Name</label>
-                    <input
-                      className='border-2 rounded-lg p-3 flex border-gray-300'
-                      type='text'
-                      name='name'
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  
-                </div>
                 <div className='flex flex-col py-2'>
                   <label className='uppercase text-sm py-2'>Email</label>
                   <input
-                    className='border-2 rounded-lg p-3 flex border-gray-300'
+                    className='border-2 rounded-lg p-2 flex border-gray-300'
                     type='email'
                     name='email'
                     value={email}
@@ -93,9 +106,9 @@ const Contact = () => {
                   />
                 </div>
                 <div className='flex flex-col py-2'>
-                  <label className='uppercase text-sm py-2'>Subject</label>
+                  <label className='uppercase text-sm py-3'>Subject</label>
                   <input
-                    className='border-2 rounded-lg p-3 flex border-gray-300'
+                    className='border-2 rounded-lg p-2 flex border-gray-300'
                     type='text'
                     name='subject'
                     value={subject}
@@ -105,16 +118,24 @@ const Contact = () => {
                 <div className='flex flex-col py-2'>
                   <label className='uppercase text-sm py-2'>Message</label>
                   <textarea
-                    className='border-2 rounded-lg p-3 border-gray-300'
-                    rows='6'
+                    className='border-2 rounded-lg p-2 border-gray-300'
+                    rows='4'
                     name='message'
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                   ></textarea>
                 </div>
-                <button className='w-full p-4 text-gray-100 mt-4'>
-                  Send Message
+                <button className='w-full p-2 inline text-gray-100 mt-4'>
+                  <label> {loading ? 'Sending...' : 'Send Message'}  </label>
                 </button>
+                  <div className='flex justify-center'>
+                                  
+                  { eventMess.show && 
+                    <div className={` text-center w-52 mt-4 p-3 rounded-3xl ${eventMess.color}`}>
+                        <p className='text-white'>{eventMess.message}</p>
+                    </div>
+                  }
+                </div>
               </form>
             </div>
           </div>
