@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import glonemeet2 from '../public/assets/projects/sistemaerp/sistemaerp1.jpg'
+import glonemeet2 from '../public/assets/projects/sistemaerp/sistemaerp2.jpg'
 import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 import PAGE_TRANSITION from '../pageTransitions';
