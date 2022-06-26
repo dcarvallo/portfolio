@@ -4,39 +4,59 @@ import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
+import {BiMoon,BiSun} from 'react-icons/bi'
 
 const routes = ['/inertiasystem', '/erpsystem', '/rentcar', '/meet']
 
 const Navbar = () => {
+  const {systemTheme, theme, setTheme} = useTheme(); 
+  const [mounted, setMounted] = useState(false);
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('#ecf0f3');
   const [linkColor, setLinkColor] = useState('#1f2937');
   const router = useRouter();
 
-  useEffect(() => {
-    setTimeout(() => {
+  const renderTheme = () => {
+    if(!mounted) return null;
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+    
+    if(currentTheme === 'dark'){
+      return (
+        <BiSun className='w-7 h-7 hover:scale-110 ease-in duration-300 rounded-full' role='button' onClick={() => setTheme('light')} />
+      )
+    }
+    else{
+      return (
+        <BiMoon className='w-7 h-7 hover:scale-110 ease-in duration-300 rounded-full' role='button' onClick={() => setTheme('dark')} />
+      )
+    }
+  }
 
-      if (routes.includes(router.asPath) ) {
-        setNavBg('transparent');
-        setLinkColor('#fff');
-        console.log('tttttt')
-      } else {
-        setNavBg('#ecf0f3');
-        setLinkColor('#000');
-      }
-    }, 600)
-  }, [router]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+
+  //     if (routes.includes(router.asPath) ) {
+  //       setNavBg('transparent');
+  //       setLinkColor('#fff');
+  //     } else {
+  //       setNavBg('#ecf0f3');
+  //       setLinkColor('#000');
+  //     }
+  //   }, 600)
+  // }, [router]);
 
   const handleNav = () => {
     setNav(!nav);
   };
 
   useEffect(() => {
+    setMounted(true)
     const handleShadow = () => {
       if (window.scrollY >= 90 && routes.includes(router.asPath) ) {
         setShadow(true);
-        setLinkColor('#000');
+        setLinkColor('#fff');
         setNavBg('#ecf0f3');
       } else  {
         setShadow(false);
@@ -50,44 +70,49 @@ const Navbar = () => {
       style={{ backgroundColor: `${navBg}`,color: `${linkColor}`  }}
       className={
         shadow
-          ? 'fixed w-full h-14 z-[100] ease-in-out duration-300'
-          : 'fixed w-full h-14 z-[100] '
+          ? 'fixed w-full h-14 z-[100] ease-in-out duration-300 '
+          : 'fixed w-full h-14 z-[100]'
         }
     >
-      <div className='flex justify-end md:justify-center items-center w-full h-full px-2 2xl:px-16'>
+      <div className='flex justify-end md:justify-around items-center w-full h-full px-2 2xl:px-16 dark:bg-gray-700 dark:text-gray-100'>
+       <div></div>
         <div>
-          <ul style={{ color: `${linkColor}` }} className='hidden md:flex'>
+          <ul className={`${linkColor=='#fff' ? 'text-white' : 'text-gray-700'} dark:text-gray-100 dark:bg-gray-700 hidden md:flex`}>
             <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>Home</li>
+              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>Home</li>
             </Link>
             
             <Link href='/#skills'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>Skills</li>
+              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>Skills</li>
             </Link>
             <Link href='/#projects'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>
+              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>
                 Projects
               </li>
             </Link>
             <Link href="/resume">
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+            <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>
                 Resume
               </li>
             </Link>
             <Link href='/#contact'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>
+              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>
                 Contact
               </li>
             </Link>
           </ul>
-          
+
+
           <div
-            style={{ color: `${linkColor}`, cursor: 'pointer' }}
+            // style={{ color: `${linkColor}`, cursor: 'pointer' }}
             onClick={handleNav}
-            className='md:hidden hover:bg-slate-200 p-3 rounded mr-4 mt-1'
+            className='md:hidden hover:bg-slate-200 dark:bg-gray-600 p-3 dark:text-gray-100 cursor-pointer rounded mr-4 mt-1'
           >
             <AiOutlineMenu size={25} />
           </div>
+        </div>
+        <div className='hidden md:flex'>
+          {renderTheme()}
         </div>
       </div>
 
@@ -100,7 +125,7 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? ' fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-300'
+              ? ' fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] dark:bg-gray-700 dark:text-gray-100 p-10 ease-in duration-300'
               : 'fixed left-[-150%] top-0 p-10 ease-in duration-300'
           }
         >
@@ -112,9 +137,10 @@ const Navbar = () => {
                 DC
                   </a>
               </Link>
+              {renderTheme()}
               <div
                 onClick={handleNav}
-                className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:bg-slate-200'
+                className='rounded-full shadow-lg dark:shadow-none border shadow-gray-400 p-3 cursor-pointer hover:bg-slate-200'
               >
                 <AiOutlineClose />
               </div>
@@ -128,27 +154,27 @@ const Navbar = () => {
           <div className='py-4 flex flex-col'>
             <ul className='uppercase'>
               <Link href='/'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
                   Home
                 </li>
               </Link>
               <Link href='/#skills'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
                   Skills
                 </li>
               </Link>
               <Link href='/#projects'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
                   Projects
                 </li>
               </Link>
               <Link href='/resume'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
                   Resume
                 </li>
               </Link>
               <Link href='#contact'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
                   Contact
                 </li>
               </Link>

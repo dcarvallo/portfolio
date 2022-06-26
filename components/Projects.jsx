@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import inertia1 from '../public/assets/projects/base-inertia/inertia1.png';
-import cars from '../public/assets/projects/cars/cars.png';
-import glonemeet from '../public/assets/projects/glonemeet/glonemeet1.png';
-import sistemaerp from '../public/assets/projects/sistemaerp/sistemaerp2.png';
+import inertia1 from '../public/assets/projects/base-inertia/inertia1.jpg';
+import cars from '../public/assets/projects/cars/cars.jpg';
+import glonemeet from '../public/assets/projects/glonemeet/glonemeet1.jpg';
+import sistemaerp from '../public/assets/projects/sistemaerp/sistemaerp2.jpg';
 import ProjectItem from './ProjectItem';
 
 const Projects = () => {

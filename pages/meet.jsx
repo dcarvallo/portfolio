@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import glonemeet2 from '../public/assets/projects/glonemeet/glonemeet2.png'
+import glonemeet2 from '../public/assets/projects/glonemeet/glonemeet1.jpg'
 import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 import PAGE_TRANSITION from '../pageTransitions';
@@ -37,8 +37,8 @@ const animateVariants = {
 const meet = () => {
   return (
     <div className='w-full'>
-      <div className='w-screen h-[30vh] lg:h-[40vh] relative'>
-        <div className='absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/80 z-10' />
+      <div className='w-screen h-[40vh] lg:h-[40vh] relative'>
+        <div className='absolute top-0 left-0 w-full h-[40vh] lg:h-[40vh] bg-black/80 dark:bg-black/70 z-10' />
         <Image
           className='absolute z-1'
           layout='fill'
@@ -64,8 +64,8 @@ const meet = () => {
         </motion.div>
       </div>
 
-      <div className='max-w-[1240px] mx-auto p-2 grid md:grid-cols-5 gap-8 pt-8'>
-        <div className='col-span-4'>
+      <div className='w-11/12 max-w-[1240px] mx-auto p-4 grid md:grid-cols-5 gap-8 pt-8'>
+        <div className='col-span-4 md:col-span-3 lg:col-span-4'>
           <h2>Overview</h2>
           <motion.div
           initial={{y:100,opacity: 0}}
@@ -76,7 +76,7 @@ const meet = () => {
           </p>
           <div>
 
-            <ul className="list-disc ">
+            <ul className="list-disc list-outside pl-6">
               <li>Google account authentication</li>
               <li>User types: [&apos;Room Creator&apos;, &apos;Participant&apos;]</li>
               <li>List of participants with search</li>
@@ -101,31 +101,33 @@ const meet = () => {
           </div>
           </motion.div>
         </div>
-        <div className='col-span-4 md:col-span-1 shadow-xl shadow-gray-400 rounded-xl p-4'>
+        <div className='col-span-4 md:col-span-2 lg:col-span-1 shadow-xl shadow-gray-400 dark:shadow-none dark:border-2 rounded-xl p-4'>
           <div className='p-2'>
             <p className='text-center font-bold pb-2'>Technologies</p>
             <div className='grid grid-cols-3 md:grid-cols-1'>
-              <p className='text-gray-600 py-2 flex items-center'>
+              <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
                 <RiRadioButtonFill className='pr-1' /> React
               </p>
-              <p className='text-gray-600 py-2 flex items-center'>
+              <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
                 <RiRadioButtonFill className='pr-1' /> Material UI
               </p>
-              <p className='text-gray-600 py-2 flex items-center'>
+              <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
                 <RiRadioButtonFill className='pr-1' /> Javascript
               </p>
-              <p className='text-gray-600 py-2 flex items-center'>
+              <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
                 <RiRadioButtonFill className='pr-1' /> Twilio
               </p>
-              <p className='text-gray-600 py-2 flex items-center'>
+              <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
                 <RiRadioButtonFill className='pr-1' /> Auth0
               </p>
             </div>
           </div>
         </div>
-        <Link href='/#projects'>
-          <p className='underline cursor-pointer'>Back</p>
-        </Link>
+        <div className='col-span-4'>
+          <Link href='/#projects'>
+            <p className='underline cursor-pointer'>Back</p>
+          </Link>
+        </div>
       </div>
     </div>
   );

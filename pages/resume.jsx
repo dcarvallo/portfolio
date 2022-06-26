@@ -19,7 +19,7 @@ const resume = () => {
 
       <div className='max-w-[940px] mx-auto p-2 pt-[120px]'>
         <h2 className='text-center'>Resume</h2>
-        <div className='bg-gray-200 rounded my-4 p-4 w-full flex justify-between items-center'>
+        <div className='bg-gray-200 dark:bg-gray-800 dark:border-2 rounded-xl my-4 p-4 w-full flex justify-between items-center'>
           <h2 className='text-center'>Daniel Carvallo</h2>
           <div className='flex'>
             <a
@@ -28,12 +28,12 @@ const resume = () => {
               rel="noreferrer"
               className='mr-2'
             >
-            <div className='rounded-full shadow-lg shadow-gray-400 p-4 bg-blue-100 cursor-pointer hover:scale-110 ease-in duration-300'>
+            <div className='rounded-full shadow-lg shadow-gray-400 p-4 bg-blue-100 dark:bg-gray-800 dark:border-4 dark:shadow-none cursor-pointer hover:scale-110 ease-in duration-300'>
               <FaLinkedinIn size={20} />
               </div>
             </a>
             <a href='https://github.com/dcarvallo' target='_blank' rel="noreferrer">
-            <div className='rounded-full shadow-lg shadow-gray-400 p-4 bg-blue-100 cursor-pointer hover:scale-110 ease-in duration-300'>
+            <div className='rounded-full shadow-lg shadow-gray-400 p-4 bg-blue-100 dark:bg-gray-800 dark:border-4 dark:shadow-none cursor-pointer hover:scale-110 ease-in duration-300'>
               <FaGithub size={20} />
               </div>
             </a>
@@ -117,6 +117,7 @@ const resume = () => {
             </li>
           </ul>
         </div>
+        <hr />
         <div className='py-4'>
           <p className='italic'>
             <span className='font-bold'>Freelancer</span>
@@ -136,6 +137,7 @@ const resume = () => {
             </li>
           </ul>
         </div>
+        <hr />
         <div className='py-4'>
           <p className='italic'>
             <span className='font-bold italic'>Electric Company</span>
