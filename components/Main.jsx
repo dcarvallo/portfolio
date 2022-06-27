@@ -1,10 +1,17 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import Wrapper from './Wrapper'
+import en from '../utils/i18n/en';
+import es from '../utils/i18n/es';
+
 const Main = () => {
+  const router = useRouter()
+  const {locale} = router;
+  const t = locale === 'en' ? en : es;
   return (
     <Wrapper>
     <div id='home' className='w-full h-screen text-center'>
@@ -12,14 +19,14 @@ const Main = () => {
         <div className='flex flex-col md:flex-row'>
           <div>
             <p className='uppercase text-sm tracking-widest text-gray-600 dark:text-gray-100'>
-              Let&apos;s build something together
+              {t.connect}
             </p>
             <h1 className='py-4 text-gray-700 dark:text-gray-100'>
-              Hi, I&apos;m <span className='text-[#545aff]'> Daniel Carvallo</span>
+              {t.hi} <span className='text-[#545aff]'> Daniel Carvallo</span>
             </h1>
             <h1 className='py-2 text-gray-700 dark:text-gray-100'>Software Developer</h1>
             <p className='py-4 text-gray-600 dark:text-gray-100 max-w-[70%] m-auto'>
-            I like to make new exceptional digital experiences with web technologies.
+              {t.mainDescription}
             </p>
           </div>
           <div className='flex md:flex-col gap-4 items-center justify-between max-w-[330px] m-auto px-4 hover:transform-none'>

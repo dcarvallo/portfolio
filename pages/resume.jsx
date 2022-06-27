@@ -2,14 +2,22 @@ import React from 'react';
 import Head from 'next/head'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import Wrapper from '../components/Wrapper';
+import { useRouter } from 'next/router';
+import en from '../utils/i18n/en';
+import es from '../utils/i18n/es';
 
 
 
 const resume = () => {
+
+  const router = useRouter();
+  const { locale }= router;
+  const t = locale === 'en' ? en : es;
+
   return (
     <Wrapper>
       <Head>
-        <title>Daniel Carvallo | Resume</title>
+        <title>Daniel Carvallo | {t.resume}</title>
         <meta
           name='description'
           content='I’m a front-end web developer specializing in building (and occasionally designing) exceptional digital experiences.'
@@ -18,7 +26,7 @@ const resume = () => {
       </Head>
 
       <div className='max-w-[940px] mx-auto p-2 pt-[120px]'>
-        <h2 className='text-center'>Resume</h2>
+        <h2 className='text-center'>{t.resume}</h2>
         <div className='bg-gray-200 dark:bg-gray-800 dark:border-2 rounded-xl my-4 p-4 w-full flex justify-between items-center'>
           <h2 className='text-center'>Daniel Carvallo</h2>
           <div className='flex'>
@@ -45,24 +53,16 @@ const resume = () => {
             <span className='px-1'>|</span> Full Stack Developer
           </p>
         </div>
-        <p>
-
-
-
-          I love new challenges and I don&apos;t give up easily. 
-          Innovative and motivated by web development
-          with experience in differents project, 
-          I&apos;ve been able to adapt to the situations I faced.
-        </p>
+        <p>{t.resumeDescription}</p>
 
         <div className=' py-4'>
-          <h5 className='text-center underline text-[18px] py-2'>Education</h5>
+          <h5 className='text-center underline text-[18px] py-2'>{t.education}</h5>
           <ul className='list-disc list-inside'>
-            <li>Systems Engineer</li>
-            <li>Master&apos;s degree in Information Technologies and Computer Security</li>
-            <li>Postgraduate of Ethical Hacking and Cybersecurity</li>
-            <li>Certificate of Expert in Data Transmission</li>
-            <li>Mikrotik Certified MTCNA: 2018-2021, MIKROTIK</li>
+            <li>{t.education1}</li>
+            <li>{t.education2}</li>
+            <li>{t.education3}</li>
+            <li>{t.education4}</li>
+            <li>{t.education5}</li>
           </ul>
         </div>
 
@@ -92,27 +92,26 @@ const resume = () => {
 
         <div className='py-4'>
           <h5 className='text-center underline text-[18px] py-4'>
-            Professional Experience
+            {t.professionalExperience}
           </h5>
           <p className='italic'>
-            <span className='font-bold'>Supreme Justice Court</span>
+            <span className='font-bold'>{t.pe3Name}</span>
             <span className='px-2'>|</span>Sucre, Bolivia
           </p>
-          <p className='py-1 italic'>Software Developer (2021)</p>
+          <p className='py-1 italic'>{t.pe3Time}</p>
           <ul className='list-disc px-7 py-1 leading-relaxed'>
             <li>
-              Part of the development team that developed a new software for the judicial system using the following technologies:
+              {t.pe3Desc1}
               <ul  className='list-disc list-inside'>
-                <li> Scrum</li>
-                <li> OpenLdap</li>
-                <li> Zabbix</li>
-                <li> Nginx</li>
-                <li> Local repository Verdaccio</li>
-                <li> PostgresSQL</li>
-                <li> Nodejs, NestJS Typescript, VueJs</li>
-                <li> DevSecOps</li>
-                <li> CI/CD, Docker, Kubernetes</li>
-                <li> K6, Cypress, Sonarqube, Postman</li>
+                <li> {t.pe3Desc2}</li>
+                <li> {t.pe3Desc3}</li>
+                <li> {t.pe3Desc4}</li>
+                <li> {t.pe3Desc5}</li>
+                <li> {t.pe3Desc6}</li>
+                <li> {t.pe3Desc7}</li>
+                <li> {t.pe3Desc8}</li>
+                <li> {t.pe3Desc9}</li>
+                <li> {t.pe3Desc10}</li>
               </ul>
             </li>
           </ul>
@@ -120,19 +119,19 @@ const resume = () => {
         <hr />
         <div className='py-4'>
           <p className='italic'>
-            <span className='font-bold'>Freelancer</span>
+            <span className='font-bold'>{t.pe2Name}</span>
             <span className='px-2'>|</span>Sucre, Bolivia
           </p>
-          <p className='py-1 italic'>Software Developer (2020)</p>
+          <p className='py-1 italic'>{t.pe2Time}</p>
           <ul className='list-disc list-outside px-7 py-1 leading-relaxed'>
             <li>
-            Freelance app developer for Mobile with:
+            {t.pe2Desc1}
             <ul className='list-disc list-inside'>
-              <li>Flutter</li>
-              <li>React Native</li>
-              <li>NodeJS</li>
-              <li>GraphQL</li>
-              <li>Apollo Server</li>
+              <li>{t.pe2Desc2}</li>
+              <li>{t.pe2Desc3}</li>
+              <li>{t.pe2Desc4}</li>
+              <li>{t.pe2Desc5}</li>
+              <li>{t.pe2Desc6}</li>
             </ul>
             </li>
           </ul>
@@ -140,32 +139,18 @@ const resume = () => {
         <hr />
         <div className='py-4'>
           <p className='italic'>
-            <span className='font-bold italic'>Electric Company</span>
+            <span className='font-bold italic'>{t.pe1Name}</span>
             <span className='px-2'>|</span>Sucre, Bolivia
           </p>
-          <p className='py-1 italic'>Software Developer and support for TI Department (2017 - 2019)</p>
+          <p className='py-1 italic'>{t.pe1Time}</p>
           <ul className='list-disc list-outside px-7 py-1 leading-relaxed'>
-            <li>
-              Creation, administration and maintenance of intranet systems for the company.
-            </li>
-            <li>
-              Management of incident systems, network monitoring system, log centralization system.
-            </li>
-            <li>
-              Configuration of network devices, structured cabling and security issues.
-            </li>
-            <li>
-              Update documentation according to procedures established in the information security management system with ISO27001.
-            </li>
-            <li>
-              Basic work con AS/400 System
-            </li>
-            <li>
-              Work with Windows and Linux servers.
-            </li>
-            <li>
-              Help interns with IT tasks.
-            </li>
+            <li>{t.pe1Desc1}</li>
+            <li>{t.pe1Desc2}</li>
+            <li>{t.pe1Desc3}</li>
+            <li>{t.pe1Desc4}</li>
+            <li>{t.pe1Desc5}</li>
+            <li>{t.pe1Desc6}</li>
+            <li>{t.pe1Desc7}</li>
             
           </ul>
         </div>

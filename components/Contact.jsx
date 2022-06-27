@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
+import en from '../utils/i18n/en';
+import es from '../utils/i18n/es';
 
 const initstate = {
   show: false,
@@ -18,6 +21,10 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [eventMess, setEventMess] = useState(initstate)
   const [loading, setLoading] = useState(false)
+  const router = useRouter();
+  const {locale} = router;
+  const t = locale === 'en' ? en : es;
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const formData = new FormData();
@@ -52,15 +59,15 @@ const Contact = () => {
     <div id='contact' className='w-full lg:h-screen'>
       <div className='max-w-[1240px] m-auto px-2 py-16 w-full '>
         <p className='text-xl text tracking-wide font-semibold uppercase text-[#545aff]'>
-          Contact
+          {t.contact}
         </p>
         
         <div className='grid lg:grid-cols-5 gap-8 rounded-xl shadow-md shadow-gray-400'>
 
           <div className='col-span-3 lg:col-span-2 w-full h-full  rounded-xl p-4'>
             <div className='lg:p-4 h-full '>
-            <h2 className='py-4'>Get In Touch</h2>
-            <p>If you have any questions please feel free to contact me.</p>
+            <h2 className='py-4'>{t.getInTouch}</h2>
+            <p>{t.getInTouchDesc}</p>
               <div>
                 <div className='flex items-center justify-around py-4'>
                   <a
@@ -101,7 +108,7 @@ const Contact = () => {
                 onSubmit={handleSubmit}
               >
                 <div className='flex flex-col py-2'>
-                  <label className='uppercase text-sm py-2'>Your Email</label>
+                  <label className='uppercase text-sm py-2'>{t.email}</label>
                   <input
                     className='border-2 rounded-lg p-2 flex border-gray-300'
                     type='email'
@@ -111,7 +118,7 @@ const Contact = () => {
                   />
                 </div>
                 <div className='flex flex-col py-2'>
-                  <label className='uppercase text-sm py-3'>Subject</label>
+                  <label className='uppercase text-sm py-3'>{t.subject}</label>
                   <input
                     className='border-2 rounded-lg p-2 flex border-gray-300'
                     type='text'
@@ -121,7 +128,7 @@ const Contact = () => {
                   />
                 </div>
                 <div className='flex flex-col py-2'>
-                  <label className='uppercase text-sm py-2'>Message</label>
+                  <label className='uppercase text-sm py-2'>{t.message}</label>
                   <textarea
                     className='border-2 rounded-lg p-2 border-gray-300'
                     rows='4'
@@ -131,7 +138,7 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 <button className='w-full p-2 dark:shadow-none   inline text-gray-100 mt-4'>
-                  <label> {loading ? 'Sending...' : 'Send Message'}  </label>
+                  <label> {loading ? t.sending : t.sendMessage }  </label>
                 </button>
                   <div className='flex justify-center'>
                                   

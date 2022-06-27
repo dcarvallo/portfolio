@@ -5,6 +5,9 @@ import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 import PAGE_TRANSITION from '../pageTransitions';
 import {LazyMotion, domAnimation, motion} from 'framer-motion'
+import { useRouter } from 'next/router';
+import en from '../utils/i18n/en';
+import es from '../utils/i18n/es';
 
 const easing= [0.175,0.85,0.45,0.96]
 const TOTAL_TIME = PAGE_TRANSITION.DURATION
@@ -35,6 +38,11 @@ const animateVariants = {
 
 
 const erpsystem = () => {
+
+  const router = useRouter();
+  const { locale }= router;
+  const t = locale === 'en' ? en : es;
+
   return (
     <div className='w-full'>
       <div className='w-screen h-[40vh] lg:h-[40vh] relative'>
@@ -44,7 +52,7 @@ const erpsystem = () => {
           layout='fill'
           objectFit='cover'
           src={glonemeet2}
-          alt='/'
+          alt='Laravel project'
         />
         <motion.div variants={animateVariants} className='absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2'>
           <motion.h2 className='py-2'
@@ -66,36 +74,36 @@ const erpsystem = () => {
 
       <div className='w-11/12 max-w-[1240px] mx-auto p-2 grid md:grid-cols-5 gap-8 pt-8'>
         <div className='col-span-4 md:col-span-3 lg:col-span-4'>
-          <h2>Overview</h2>
+          <h2 className=' mb-4'>{t.overview}</h2>
           <motion.div
           initial={{y:100,opacity: 0}}
           animate={{y:0,opacity:1}}
           >
-          <p className='text-xl'>
-          This app aims to be the base of a system:
+          <p className='text-xl mb-4'>
+            {t.laravelDescription}
           </p>
           <div>
-            <p>In Construction</p>
+            <p>{t.laravelDesc1}</p>
             <ul className="list-disc pl-6">
-              <li>Admin view</li>
-              <li>File management</li>
-              <li>Employees management</li>
-              <li>Account management</li>
-              <li>Roles</li>
-              <li>Permissions</li>
-              <li>Assign roles to users</li>
-              <li>Views by roles</li>
-              <li>Export (Excel | PDF) page selector</li>
-              <li>Search functionality</li>
-              <li>CRUD
+              <li>{t.laravelDesc2}</li>
+              <li>{t.laravelDesc3}</li>
+              <li>{t.laravelDesc4}</li>
+              <li>{t.laravelDesc5}</li>
+              <li>{t.laravelDesc6}</li>
+              <li>{t.laravelDesc7}</li>
+              <li>{t.laravelDesc8}</li>
+              <li>{t.laravelDesc9}</li>
+              <li>{t.laravelDesc10}</li>
+              <li>{t.laravelDesc11}</li>
+              <li>{t.laravelDesc12}
                 <ul  className="list-disc list-inside">
-                  <li>Users</li>
-                  <li>Roles</li>
-                  <li>Company</li>
-                  <li>Locations</li>
-                  <li>Departments</li>
-                  <li>Areas</li>
-                  <li>Charges</li>
+                  <li>{t.laravelDesc13}</li>
+                  <li>{t.laravelDesc14}</li>
+                  <li>{t.laravelDesc15}</li>
+                  <li>{t.laravelDesc16}</li>
+                  <li>{t.laravelDesc17}</li>
+                  <li>{t.laravelDesc18}</li>
+                  <li>{t.laravelDesc19}</li>
                 </ul>
               </li>
             </ul>
@@ -109,7 +117,7 @@ const erpsystem = () => {
         </div>
         <div className='col-span-4 md:col-span-2 lg:col-span-1 shadow-xl shadow-gray-400 dark:shadow-none dark:border-2 rounded-xl p-4'>
           <div className='p-2'>
-            <p className='text-center font-bold pb-2'>Technologies</p>
+            <p className='text-center font-bold pb-2'>{t.technologies}</p>
             <div className='grid grid-cols-3 md:grid-cols-1'>
               <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
                 <RiRadioButtonFill className='pr-1' /> Laravel
@@ -130,7 +138,7 @@ const erpsystem = () => {
           </div>
         </div>
         <Link href='/#projects'>
-          <p className='underline cursor-pointer'>Back</p>
+          <p className='underline cursor-pointer'>{t.back}</p>
         </Link>
       </div>
     </div>

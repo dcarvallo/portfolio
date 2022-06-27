@@ -1,11 +1,14 @@
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import {BiMoon,BiSun} from 'react-icons/bi'
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import {BiMoon,BiSun} from 'react-icons/bi'
+import en from '../utils/i18n/en'
+import es from '../utils/i18n/es'
+
 
 const routes = ['/inertiasystem', '/erpsystem', '/rentcar', '/meet']
 
@@ -17,6 +20,9 @@ const Navbar = () => {
   const [navBg, setNavBg] = useState('#ecf0f3');
   const [linkColor, setLinkColor] = useState('#1f2937');
   const router = useRouter();
+
+  const {locale} = router
+  const t = locale === 'en' ? en : es;
 
   const renderTheme = () => {
     if(!mounted) return null;
@@ -33,19 +39,11 @@ const Navbar = () => {
       )
     }
   }
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-
-  //     if (routes.includes(router.asPath) ) {
-  //       setNavBg('transparent');
-  //       setLinkColor('#fff');
-  //     } else {
-  //       setNavBg('#ecf0f3');
-  //       setLinkColor('#000');
-  //     }
-  //   }, 600)
-  // }, [router]);
+  
+  const changeLanguage = (e) => {
+    const locale = e.target.value;
+    router.push('/','/',{locale})
+  }
 
   const handleNav = () => {
     setNav(!nav);
@@ -79,25 +77,25 @@ const Navbar = () => {
         <div>
           <ul className={`${linkColor=='#fff' ? 'text-white' : 'text-gray-700'} dark:text-gray-100 dark:bg-gray-700 hidden md:flex`}>
             <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>Home</li>
+              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>{t.home}</li>
             </Link>
             
             <Link href='/#skills'>
-              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>Skills</li>
+              <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>{t.skills}</li>
             </Link>
             <Link href='/#projects'>
               <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>
-                Projects
+                {t.projects}
               </li>
             </Link>
             <Link href="/resume">
             <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>
-                Resume
+                {t.resume}
               </li>
             </Link>
             <Link href='/#contact'>
               <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>
-                Contact
+                {t.contact}
               </li>
             </Link>
           </ul>
@@ -111,8 +109,16 @@ const Navbar = () => {
             <AiOutlineMenu size={25} />
           </div>
         </div>
-        <div className='hidden md:flex'>
+        <div className='hidden md:flex '>
           {renderTheme()}
+          <select 
+          onChange={changeLanguage}
+          defaultValue={locale}
+          className="dark:text-white text-sm bg-transparent cursor-pointer"
+          >
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+          </select>
         </div>
       </div>
 
@@ -137,7 +143,17 @@ const Navbar = () => {
                 DC
                   </a>
               </Link>
-              {renderTheme()}
+              <div className='flex'>
+                {renderTheme()}
+                <select 
+                  onChange={changeLanguage}
+                  defaultValue={locale}
+                  className="dark:text-white text-sm bg-transparent cursor-pointer"
+                >
+                  <option value="en">EN</option>
+                  <option value="es">ES</option>
+                </select>
+              </div>
               <div
                 onClick={handleNav}
                 className='rounded-full shadow-lg dark:shadow-none border shadow-gray-400 p-3 cursor-pointer hover:bg-slate-200'
@@ -147,7 +163,7 @@ const Navbar = () => {
             </div>
             <div className='border-b border-gray-300 my-4'>
               <p className='w-[85%] md:w-[90%] py-4'>
-                Let`s build something together
+                {t.connect}
               </p>
             </div>
           </div>
@@ -155,33 +171,33 @@ const Navbar = () => {
             <ul className='uppercase'>
               <Link href='/'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
-                  Home
+                {t.home}
                 </li>
               </Link>
               <Link href='/#skills'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
-                  Skills
+                  {t.skills}
                 </li>
               </Link>
               <Link href='/#projects'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
-                  Projects
+                  {t.projects}
                 </li>
               </Link>
               <Link href='/resume'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
-                  Resume
+                  {t.resume}
                 </li>
               </Link>
               <Link href='#contact'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
-                  Contact
+                  {t.contact}
                 </li>
               </Link>
             </ul>
             <div className='pt-40'>
               <p className='uppercase tracking-widest text-blue-500'>
-                Let`s Connect
+                {t.letsConnect}
               </p>
               <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                 <a
@@ -189,7 +205,7 @@ const Navbar = () => {
                   target='_blank'
                   rel="noreferrer"
                 >
-                  <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                  <div className='rounded-full dark:shadow-none dark:border-2 shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                     <FaLinkedinIn />
                   </div>
                 </a>
@@ -198,17 +214,17 @@ const Navbar = () => {
                   target='_blank'
                   rel="noreferrer"
                 >
-                  <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                  <div className='rounded-full dark:shadow-none dark:border-2 shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                     <FaGithub />
                   </div>
                 </a>
                 <Link href='/#contact'>
-                  <div onClick={()=>setNav(!nav)} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                  <div onClick={()=>setNav(!nav)} className='rounded-full dark:shadow-none dark:border-2 shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                     <AiOutlineMail />
                   </div>
                 </Link>
                 <Link href='/resume'>
-                  <div onClick={()=>setNav(!nav)} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                  <div onClick={()=>setNav(!nav)} className='rounded-full dark:shadow-none dark:border-2 shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                     <BsFillPersonLinesFill />
                   </div>
                 </Link>

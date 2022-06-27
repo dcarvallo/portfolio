@@ -1,17 +1,23 @@
-import Image from 'next/image';
-import Link from 'next/link';
+
+import { useRouter } from 'next/router';
 import React from 'react';
 import inertia1 from '../public/assets/projects/base-inertia/inertia1.jpg';
 import cars from '../public/assets/projects/cars/cars.jpg';
 import glonemeet from '../public/assets/projects/glonemeet/glonemeet1.jpg';
 import sistemaerp from '../public/assets/projects/sistemaerp/sistemaerp2.jpg';
 import ProjectItem from './ProjectItem';
+import en from "../utils/i18n/en"
+import es from "../utils/i18n/es"
 
 const Projects = () => {
+  const router = useRouter();
+  const {locale} = router;
+  const t = locale === "en" ? en : es;
+  
   return (
     <div id='projects' className='w-full'>
       <div className='max-w-[1240px] mx-auto px-2 py-16'>
-        <h3 className='py-4 text-2xl'>Some Projects</h3>
+        <h3 className='py-4 text-2xl'>{t.projectDescription}</h3>
         <div className='grid md:grid-cols-2 gap-8'>
         <ProjectItem
             title='Glone Meet'

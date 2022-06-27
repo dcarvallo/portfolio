@@ -5,6 +5,9 @@ import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 import PAGE_TRANSITION from '../pageTransitions';
 import {LazyMotion, domAnimation, motion} from 'framer-motion'
+import { useRouter } from 'next/router';
+import en from '../utils/i18n/en';
+import es from '../utils/i18n/es';
 
 const easing= [0.175,0.85,0.45,0.96]
 const TOTAL_TIME = PAGE_TRANSITION.DURATION
@@ -35,6 +38,11 @@ const animateVariants = {
 
 
 const inertiasystem = () => {
+
+  const router = useRouter();
+  const { locale }= router;
+  const t = locale === 'en' ? en : es;
+
   return (
     <div className='w-full'>
       <div className='w-screen h-[40vh] lg:h-[40vh] relative'>
@@ -44,7 +52,7 @@ const inertiasystem = () => {
           layout='fill'
           objectFit='cover'
           src={glonemeet2}
-          alt='/'
+          alt='background inertia system image'
         />
         <motion.div variants={animateVariants} className='absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2'>
           <motion.h2 className='py-2'
@@ -66,35 +74,35 @@ const inertiasystem = () => {
 
       <div className='w-11/12 max-w-[1240px] mx-auto p-2 grid md:grid-cols-5 gap-8 pt-8'>
         <div className='col-span-4 md:col-span-3 lg:col-span-4'>
-          <h2>Overview</h2>
+          <h2 className=' mb-4'>{t.overview}</h2>
           <motion.div
           initial={{y:100,opacity: 0}}
           animate={{y:0,opacity:1}}
           >
-          <p className='text-xl'>
-          This app aims to be the base of a system:
+          <p className='text-xl  mb-4'>
+           {t.inertiaDescription}
           </p>
           <div>
-            <p>In Construction</p>
+            <p>{t.inertiaDesc}</p>
             <ul className="list-disc pl-6">
-              <li>Admin view</li>
-              <li>Roles</li>
-              <li>Permissions</li>
-              <li>Assign roles to users</li>
-              <li>Role dependent views</li>
-              <li>Export (Excel | PDF)</li>
-              <li>Note Calendar</li>
-              <li>Send messages in real time</li>
-              <li>Search functionality</li>
-              <li>CRUD
+              <li>{t.inertiaDesc1}</li>
+              <li>{t.inertiaDesc2}</li>
+              <li>{t.inertiaDesc3}</li>
+              <li>{t.inertiaDesc4}</li>
+              <li>{t.inertiaDesc5}</li>
+              <li>{t.inertiaDesc6}</li>
+              <li>{t.inertiaDesc7}</li>
+              <li>{t.inertiaDesc8}</li>
+              <li>{t.inertiaDesc9}</li>
+              <li>{t.inertiaDesc10}
                 <ul  className="list-disc list-inside">
-                  <li>Users</li>
-                  <li>Roles</li>
-                  <li>Company</li>
-                  <li>Locations</li>
-                  <li>Departments</li>
-                  <li>Areas</li>
-                  <li>Charges</li>
+                  <li>{t.inertiaDesc11}</li>
+                  <li>{t.inertiaDesc12}</li>
+                  <li>{t.inertiaDesc13}</li>
+                  <li>{t.inertiaDesc14}</li>
+                  <li>{t.inertiaDesc15}</li>
+                  <li>{t.inertiaDesc16}</li>
+                  <li>{t.inertiaDesc17}</li>
                 </ul>
               </li>
             </ul>
@@ -126,7 +134,7 @@ const inertiasystem = () => {
           </div>
         </div>
         <Link href='/#projects'>
-          <p className='underline cursor-pointer'>Back</p>
+          <p className='underline cursor-pointer'>{t.back}</p>
         </Link>
       </div>
     </div>
