@@ -50,7 +50,7 @@ const Main = () => {
                 <AiOutlineMail />
               </div>
             </a>
-            <Link href='/resume' >
+            <Link href='/Resume' >
               <a href="#"className='linkfour hover:scale-110 ease-in duration-300'>
                 <div className=' rounded-full shadow-lg dark:shadow-none dark:border-2 dark:border-white shadow-gray-400 p-4 md:p-6 cursor-pointer '>
                   <BsFillPersonLinesFill />

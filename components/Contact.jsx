@@ -91,7 +91,7 @@ const Contact = () => {
                     <AiOutlineMail />
                     {/* <p>Message</p> */}
                   </div>
-                  <Link href='/resume'>
+                  <Link href='/Resume'>
                     <div className='rounded-full flex flex-col items-center gap-1 shadow-lg dark:shadow-none dark:border-2 dark:border-white shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <BsFillPersonLinesFill />
                       {/* <p>Resume</p> */}

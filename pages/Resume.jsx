@@ -6,12 +6,10 @@ import { useRouter } from 'next/router';
 import en from '../utils/i18n/en';
 import es from '../utils/i18n/es';
 
-
-
-const resume = () => {
+const Resume = () => {
 
   const router = useRouter();
-  const { locale }= router;
+  const { locale } = router;
   const t = locale === 'en' ? en : es;
 
   return (
@@ -53,7 +51,9 @@ const resume = () => {
             <span className='px-1'>|</span> Full Stack Developer
           </p>
         </div>
-        <p>{t.resumeDescription}</p>
+        <div className='flex justify-center'>
+          <p className='w-4/5 text-center'>{t.resumeDescription}</p>
+        </div>
 
         <div className=' py-4'>
           <h5 className='text-center underline text-[18px] py-2'>{t.education}</h5>
@@ -159,4 +159,4 @@ const resume = () => {
   );
 };
 
-export default resume;
+export default Resume;

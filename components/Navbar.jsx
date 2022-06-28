@@ -10,7 +10,7 @@ import en from '../utils/i18n/en'
 import es from '../utils/i18n/es'
 
 
-const routes = ['/inertiasystem', '/erpsystem', '/rentcar', '/meet']
+const routes = ['/Inertiasystem', '/Erpsystem', '/Rentcar', '/Meet']
 
 const Navbar = () => {
   const {systemTheme, theme, setTheme} = useTheme(); 
@@ -42,7 +42,7 @@ const Navbar = () => {
   
   const changeLanguage = (e) => {
     const locale = e.target.value;
-    router.push('/','/',{locale})
+    router.push(router.asPath,router.asPath,{locale})
   }
 
   const handleNav = () => {
@@ -51,16 +51,6 @@ const Navbar = () => {
 
   useEffect(() => {
     setMounted(true)
-    const handleShadow = () => {
-      if (window.scrollY >= 90 && routes.includes(router.asPath) ) {
-        setShadow(true);
-        setLinkColor('#fff');
-        setNavBg('#ecf0f3');
-      } else  {
-        setShadow(false);
-      }
-    };
-    window.addEventListener('scroll', handleShadow);
   }, []);
 
   return (
@@ -80,7 +70,7 @@ const Navbar = () => {
               <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>{t.home}</li>
             </Link>
             
-            <Link href='/#skills'>
+            <Link href='/#skills' >
               <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>{t.skills}</li>
             </Link>
             <Link href='/#projects'>
@@ -88,7 +78,7 @@ const Navbar = () => {
                 {t.projects}
               </li>
             </Link>
-            <Link href="/resume">
+            <Link href="/Resume">
             <li className='ml-10 text-sm uppercase hover:border-b cursor-pointer'>
                 {t.resume}
               </li>
@@ -109,7 +99,7 @@ const Navbar = () => {
             <AiOutlineMenu size={25} />
           </div>
         </div>
-        <div className='hidden md:flex '>
+        <div className='hidden md:flex gap-1'>
           {renderTheme()}
           <select 
           onChange={changeLanguage}
@@ -143,7 +133,7 @@ const Navbar = () => {
                 DC
                   </a>
               </Link>
-              <div className='flex'>
+              <div className='flex gap-1'>
                 {renderTheme()}
                 <select 
                   onChange={changeLanguage}
@@ -184,7 +174,7 @@ const Navbar = () => {
                   {t.projects}
                 </li>
               </Link>
-              <Link href='/resume'>
+              <Link href='/Resume'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm cursor-pointer'>
                   {t.resume}
                 </li>
@@ -223,7 +213,7 @@ const Navbar = () => {
                     <AiOutlineMail />
                   </div>
                 </Link>
-                <Link href='/resume'>
+                <Link href='/Resume'>
                   <div onClick={()=>setNav(!nav)} className='rounded-full dark:shadow-none dark:border-2 shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                     <BsFillPersonLinesFill />
                   </div>

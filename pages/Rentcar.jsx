@@ -37,14 +37,14 @@ const animateVariants = {
 }
 
 
-const rentCar = () => {
+const RentCar = () => {
   const router = useRouter();
   const {locale} = router;
   const t = locale === 'en' ? en : es;
 
   return (
     <div className='w-full'>
-      <div className='w-screen h-[40vh] lg:h-[40vh] relative'>
+      <div className='w-full h-[40vh] lg:h-[40vh] relative'>
         <div className='absolute top-0 left-0 w-full h-[40vh] lg:h-[40vh] bg-black/80 dark:bg-black/70 z-10' />
         <Image
           className='absolute z-1'
@@ -119,7 +119,7 @@ const rentCar = () => {
             </div>
           </div>
         </div>
-        <Link href='/#projects'>
+        <Link href={locale === 'en' ? '/#projects' : '/es/#projects'}>
           <p className='underline cursor-pointer'>{t.back}</p>
         </Link>
       </div>
@@ -127,4 +127,4 @@ const rentCar = () => {
   );
 };
 
-export default rentCar;
+export default RentCar;

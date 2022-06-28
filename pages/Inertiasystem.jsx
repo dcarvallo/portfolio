@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import glonemeet2 from '../public/assets/projects/glonemeet/glonemeet1.jpg'
+import glonemeet2 from '../public/assets/projects/base-inertia/inertia1.jpg'
 import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 import PAGE_TRANSITION from '../pageTransitions';
@@ -37,7 +37,7 @@ const animateVariants = {
 }
 
 
-const meet = () => {
+const Inertiasystem = () => {
 
   const router = useRouter();
   const { locale }= router;
@@ -45,14 +45,14 @@ const meet = () => {
 
   return (
     <div className='w-full'>
-      <div className='w-screen h-[40vh] lg:h-[40vh] relative'>
+      <div className='w-full h-[40vh] lg:h-[40vh] relative'>
         <div className='absolute top-0 left-0 w-full h-[40vh] lg:h-[40vh] bg-black/80 dark:bg-black/70 z-10' />
         <Image
           className='absolute z-1'
           layout='fill'
           objectFit='cover'
           src={glonemeet2}
-          alt='Glone meet image'
+          alt='background inertia system image'
         />
         <motion.div variants={animateVariants} className='absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2'>
           <motion.h2 className='py-2'
@@ -61,84 +61,84 @@ const meet = () => {
             exit={{x:40, opacity:0}}
             transition={{delay: 0.3}}
           >
-            Google Meet Clone
+            Base System with Laravel
           </motion.h2>
           <motion.h3
           animate={{x:0,opacity:1}}
           initial={{x:80, opacity:0}}
           exit={{x:40, opacity:0}}
           transition={{delay: 0.2}}
-          >React JS | Material UI | Twilio</motion.h3>
+          >Vue JS | Laravel | Tailwind | PrimeVue</motion.h3>
         </motion.div>
       </div>
 
-      <div className='w-11/12 max-w-[1240px] mx-auto p-4 grid md:grid-cols-5 gap-8 pt-8'>
+      <div className='w-11/12 max-w-[1240px] mx-auto p-2 grid md:grid-cols-5 gap-8 pt-8'>
         <div className='col-span-4 md:col-span-3 lg:col-span-4'>
-          <h2 className='mb-4'>{t.overview}</h2>
+          <h2 className=' mb-4'>{t.overview}</h2>
           <motion.div
           initial={{y:100,opacity: 0}}
           animate={{y:0,opacity:1}}
           >
-          <p className='text-xl mb-4'> 
-           {t.meetDescription}
+          <p className='text-xl  mb-4'>
+           {t.inertiaDescription}
           </p>
           <div>
-
-            <ul className="list-disc list-outside pl-6">
-              <li>{t.meetDesc1}</li>
-              <li>{t.meetDesc2}</li>
-              <li>{t.meetDesc3}</li>
-              <li>{t.meetDesc4}</li>
-              <li>{t.meetDesc5}</li>
-              <li>{t.meetDesc6}</li>
-              <li>{t.meetDesc7}</li>
-              <li>{t.meetDesc8}
-                <ul className="list-disc list-inside">
-                  <li>{t.meetDesc9}</li>
-                  <li>{t.meetDesc10}</li>
-                  <li>{t.meetDesc11}</li>
-                  <li>{t.meetDesc12}</li>
+            <p>{t.inertiaDesc}</p>
+            <ul className="list-disc pl-6">
+              <li>{t.inertiaDesc1}</li>
+              <li>{t.inertiaDesc2}</li>
+              <li>{t.inertiaDesc3}</li>
+              <li>{t.inertiaDesc4}</li>
+              <li>{t.inertiaDesc5}</li>
+              <li>{t.inertiaDesc6}</li>
+              <li>{t.inertiaDesc7}</li>
+              <li>{t.inertiaDesc8}</li>
+              <li>{t.inertiaDesc9}</li>
+              <li>{t.inertiaDesc10}
+                <ul  className="list-disc list-inside">
+                  <li>{t.inertiaDesc11}</li>
+                  <li>{t.inertiaDesc12}</li>
+                  <li>{t.inertiaDesc13}</li>
+                  <li>{t.inertiaDesc14}</li>
+                  <li>{t.inertiaDesc15}</li>
+                  <li>{t.inertiaDesc16}</li>
+                  <li>{t.inertiaDesc17}</li>
                 </ul>
               </li>
             </ul>
           </div>
           <div className='mt-6'>
 
-            <a href='https://react-twilio-serverless-8560-dev.twil.io/index.html' rel="noreferrer" target='_blank' className='bg-blue-500 text-white rounded px-8 py-2 mt-4 mr-8'>Demo</a>
-            <a  href='https://github.com/dcarvallo/glone-meet' rel="noreferrer" target='_blank' className=' bg-blue-500 text-white rounded px-8 py-2 mt-4'>Code</a>
+            <a href='https://sistema-inertia.herokuapp.com' rel="noreferrer" target='_blank' className='bg-blue-500 text-white rounded px-8 py-2 mt-4 mr-8'>Demo</a>
+            <a  href='https://github.com/dcarvallo/sistema-inertia' rel="noreferrer" target='_blank' className=' bg-blue-500 text-white rounded px-8 py-2 mt-4'>Code</a>
           </div>
           </motion.div>
         </div>
         <div className='col-span-4 md:col-span-2 lg:col-span-1 shadow-xl shadow-gray-400 dark:shadow-none dark:border-2 rounded-xl p-4'>
           <div className='p-2'>
-            <p className='text-center font-bold pb-2'>{t.technologies}</p>
+            <p className='text-center font-bold pb-2'>Technologies</p>
             <div className='grid grid-cols-3 md:grid-cols-1'>
               <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> React
+                <RiRadioButtonFill className='pr-1' /> Laravel - Inertia
               </p>
               <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Material UI
+                <RiRadioButtonFill className='pr-1' /> Tailwind
               </p>
               <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Javascript
+                <RiRadioButtonFill className='pr-1' /> Vue JS
               </p>
               <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Twilio
-              </p>
-              <p className='text-gray-600 dark:text-gray-100 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Auth0
+                <RiRadioButtonFill className='pr-1' /> PrimeVue
               </p>
             </div>
           </div>
         </div>
-        <div className='col-span-4'>
-          <Link href='/#projects'>
-            <p className='underline cursor-pointer'>Back</p>
-          </Link>
-        </div>
+        <Link href={locale === 'en' ? '/#projects' : '/es/#projects'}>
+          <p className='underline cursor-pointer'>{t.back}</p>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default meet;
+export default Inertiasystem;

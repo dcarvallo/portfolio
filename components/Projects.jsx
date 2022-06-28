@@ -22,7 +22,7 @@ const Projects = () => {
         <ProjectItem
             title='Glone Meet'
             backgroundImg={glonemeet}
-            projectUrl='/meet'
+            projectUrl='/Meet'
           >
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> React</span>
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> Material UI</span>
@@ -32,7 +32,7 @@ const Projects = () => {
           <ProjectItem
             title='Inertia base system'
             backgroundImg={inertia1}
-            projectUrl='/inertiasystem'
+            projectUrl='/Inertiasystem'
           >
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> Laravel - Inertia</span>
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> Tailwind</span>
@@ -44,7 +44,7 @@ const Projects = () => {
           <ProjectItem
             title='Rent Cars'
             backgroundImg={cars}
-            projectUrl='/rentcar'
+            projectUrl='/Rentcar'
           >
 
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> React</span>
@@ -58,7 +58,7 @@ const Projects = () => {
           <ProjectItem
             title='ERP system'
             backgroundImg={sistemaerp}
-            projectUrl='/erpsystem'
+            projectUrl='/Erpsystem'
           >
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> Laravel</span>
             <span className='p-1 bg-slate-500 text-white rounded-md text-xs'> Bootstrap</span>
